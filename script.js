@@ -1,4 +1,7 @@
 
+var requestUrl = "https://www.superheroapi.com/api/access-token/"
+var key1 = "10222471827453189"
+
 
 var searchInput = document.querySelector("#searchinput");
 var searchBar = document.querySelector('#searchbar');
@@ -13,7 +16,9 @@ var localStorageArray;
 
 
 var inputToSearch = function (event) {
-    
+
+
+
     event.preventDefault();
 
     var userInput = searchInput.value.trim();
@@ -31,4 +36,7 @@ var inputToSearch = function (event) {
 };
 
 
+
 searchBar.addEventListener('submit', inputToSearch);
+
+
