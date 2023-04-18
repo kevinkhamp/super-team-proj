@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    
+    <meta charset="UTF-8" />    
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -10,21 +9,27 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <!-- NAVBAR -->
-<body>
+
+<header>
     <div class="navbar">
-        <ul>
+        <ul id="navul">
             <li><a href="#">Home</a></li>
             <li><a href="#">Favorites</a></li>
         </ul>
     </div>
-<!-- SEARCH BAR AND BACKGROUND -->
-<div class="container">
-    <form action="" class="SUPER-SEARCH-BAR">
-        <input type="text" placeholder="Search Hero Here">
-        <button class="img-size"><img src="super search icon.png" height="100%" width="100%"></button>
+</header>
     
-    </form>
-</div>
-</body>
+<!-- SEARCH BAR AND BACKGROUND -->
 
+<body>
+
+    <div class="container">
+        <form id="searchbar" action="" class="SUPER-SEARCH-BAR">
+            <input id="searchinput" class="form-input" type="text" placeholder="Search Hero Here">
+            <button type="submit" class="img-size"><img src="super search icon.png" height="100%" width="100%"></button>    
+        </form>
+    </div>
+
+</body>
+<script src="./script.js"></script>
 </html>
