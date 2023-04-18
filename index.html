@@ -1,36 +1,68 @@
-<!DOCTYPE html>git 
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8" />    
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <base href="/">
-    <link rel="stylesheet" href="style.css">
-</head>
-<!-- NAVBAR -->
+    <head>
+        <meta charset="UTF-8"/>
 
-<header>
-    <div class="navbar">
-        <ul id="navul">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Favorites</a></li>
-        </ul>
-    </div>
-</header>
-    
-<!-- SEARCH BAR AND BACKGROUND -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <base href="/">
+        <link rel="stylesheet" href="style.css">
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    </head>
+    <!-- NAVBAR -->
+    <body>
+        <header>
+            <div id="navul" class="navbar">
+                <ul>
+                    <li>
+                        <a href="#">Home</a>
+                    </li>
+                    <li>
+                        <a href="#">Favorites</a>
+                    </li>
+                </ul>
 
-<body>
+                <!-- SEARCH BAR AND BACKGROUND -->
+                <div class="searchbar">
+                    <form id="searchbar" action="" class="SUPER-SEARCH-BAR">
+                        <input id="searchinput" type="text" placeholder="Search Hero Here">
+                        <button class="img-size"><img src="super search icon.png" height="100%" width="100%"></button>
 
-    <div class="container">
-        <form id="searchbar" action="" class="SUPER-SEARCH-BAR">
-            <input id="searchinput" class="form-input" type="text" placeholder="Search Hero Here">
-            <button type="submit" class="img-size"><img src="super search icon.png" height="100%" width="100%"></button>    
-        </form>
-    </div>
+                    </form>
+                </div>
+            </div>
+        </header>
 
-</body>
+        <main>
+            <!-- First container with char img, stats, and next release -->
+        <section class="container-1 my-5">
+            <div class="row">
+                <div class="col-12 col-md-4 col-lg-3">
+                    <div id="release" class="release">
+                        <h3>Next Release</h3>
+                    </div>
+                </div>
 
-<script src="./script.js"></script>
+                <div class="col-12 col-md-4 col-lg-3">
+                    <div id="char-img" class="char-img">
+                        <h3>char</h3>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-4 col-lg-3">
+                    <div id="stats" class="stats">
+                        <ul><h3>Stats</h3></ul>
+                    </div>
+                </div>
+            </div>
+            </section>
+            <!-- End of section -->
+
+
+
+        </main>
+        <script src="script.js"></script>
+    </body>
+
 </html>
