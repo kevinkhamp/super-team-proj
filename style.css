@@ -3,6 +3,11 @@
     margin: 0;
     border: 0;
 }
+
+body {
+    background-color: #a81616d0;
+}
+
 /* NAVBAR */
 .navbar ul{
     list-style: none;
@@ -30,15 +35,30 @@
     background:  rgb(231, 200, 116);
 }
 /* PAGE */
-.container{
-    width: 100%;
-    min-height: 100vh;
-    padding: 250px 0px;
-    background-color: #a81616d0;
-    display: flex;
+/* Container with release, char-img, stats */
+.container-1 {
     align-items: center;
     justify-content: center;
+    display: flex;
+    flex-direction: row;
+    min-width: fit-content;
+    position: relative;
 }
+
+.release, .char-img, .stats {
+border: 1px solid black;
+}
+
+/* Release should float left of char-img */
+.release {
+    float: left;
+}
+
+/* Stats should float right of char-img */
+.stats {
+    float: right;
+}
+
 /* Search Bar Format */
 .SUPER-SEARCH-BAR{ 
     width: 100%;
