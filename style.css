@@ -62,20 +62,27 @@ border: 1px solid black;
 
 /* Search Bar Format */
 .SUPER-SEARCH-BAR{ 
-    width: 200%;
-    max-width: 350px;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    /* max-width: 350px; */
     background: rgba(247, 246, 246, 0.281);
-    display: flex;
-    border-radius:20px;
+    display: inline-flex;
     padding: 5px 10px;
-    margin-top: 10px
+    margin-top: 10px;
+    margin-left: 345px;
+}
+
+#searchinput  {
+    text-align: center;
 }
 /* Search Image Icon */
 .img-size {
     width: 25px;
     height: 25px;
-    display: block;
+    display: flex;
     margin-left: auto ;
+    padding-right: 5px;
     background: rgba(253, 117, 117, 0);
 }
 /* Text without input inside search bar */
