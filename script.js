@@ -1,6 +1,6 @@
 
-var requestUrl = "https://www.superheroapi.com/api/access-token/"
-var key1 = "10222471827453189"
+var requestUrl = "https://superheroapi.com/api/" + key1
+var key1 = "3299094467007947/"
 
 
 var searchInput = document.querySelector("#searchinput");
@@ -63,6 +63,19 @@ $(function() {
       source: availableTags
     });
   } );
+
+function getCharacterData() {
+  fetch('https://cors-anywhere-jung.herokuapp.com/' + requestUrl)
+
+  .then(function(response) {
+    return response.json()
+  })
+  .then(function(data){
+    console.log(data)
+  })
+}
+
+getCharacterData()
 
 //event listener for the super search bar
 searchBar.addEventListener('submit', inputToSearch);
