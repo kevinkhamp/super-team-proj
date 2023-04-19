@@ -1,15 +1,11 @@
 
-var requestUrl = "https://www.superheroapi.com/api/access-token/"
-var key1 = "10222471827453189"
-
+var requestUrl = "https://superheroapi.com/api/" + key1
+var key1 = "3299094467007947/search/"
 
 var searchInput = document.querySelector("#searchinput");
 var searchBar = document.querySelector('#searchbar');
 var navUlEl = document.querySelector('#navul');
 var localStorageArray;
-
-
-
 
 var shortboxedURL = "https://api.shortboxed.com/"
 
@@ -84,6 +80,24 @@ $(function() {
       source: availableTags
     });
   } );
+
+function getSuperheroApi() {
+  fetch(requestUrl, {
+    method: 'GET',
+    credentials: 'same-origin',
+    redirect: 'follow'
+    })
+
+  .then(function(response) {
+    return response.json()
+  })
+  .then(function(data){
+    console.log(data)
+  })
+}
+
+getShortboxedApi()
+getSuperheroApi()
 
 //event listener for the super search bar
 searchBar.addEventListener('submit', inputToSearch);
