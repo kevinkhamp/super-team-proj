@@ -9,6 +9,27 @@ var navUlEl = document.querySelector('#navul');
 var localStorageArray;
 
 
+
+
+var shortboxedURL = "https://api.shortboxed.com/"
+
+//generic pull for shortboxed api, use REQUESTED ELEMENT as paramater to specify which element within the shortboxed api to pull
+var getShortboxedApi = function(requestedElement) {
+    var requestUrl = shortboxedURL + requestedElement;
+    fetch('https://cors-anywhere-jung.herokuapp.com/'+requestUrl, {
+    method: 'GET',
+    credentials: 'same-origin',
+    redirect: 'follow'
+    })
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+    
+      })
+};
+
 //document.ready to place functions we don't want to use until the page has loaded, commented out for now
 // $(document).ready(function() {
 
