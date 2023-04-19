@@ -34,6 +34,7 @@ body {
 .navbar a:hover{
     background:  rgb(231, 200, 116);
 }
+
 /* PAGE */
 /* Container with release, char-img, stats */
 .container-1 {
@@ -61,13 +62,13 @@ border: 1px solid black;
 
 /* Search Bar Format */
 .SUPER-SEARCH-BAR{ 
-    width: 100%;
-    max-width: 700px;
+    width: 200%;
+    max-width: 350px;
     background: rgba(247, 246, 246, 0.281);
     display: flex;
-    align-items: center;
-    border-radius: 60px;
-    padding: 10px 20px;
+    border-radius:20px;
+    padding: 5px 10px;
+    margin-top: 10px
 }
 /* Search Image Icon */
 .img-size {
@@ -80,13 +81,13 @@ border: 1px solid black;
 /* Text without input inside search bar */
 ::placeholder{
     color: rgba(0, 0, 0, 0.719);
-    font-size: 120%;
+    font-size: 110%;
     font-weight: Bold;
     font-family: "Lucida Console";
     
 }
 /* The text input that will be searched */
-.SUPER-SEARCH-BAR input{
+.SUPER-SEARCH-BAR input {
     background: transparent;
     color: rgba(0, 0, 0, 0.719);
     flex: 1;
@@ -94,4 +95,64 @@ border: 1px solid black;
     font-size: 140%;
     font-weight: Bold;
     font-family: "Lucida Console";
+}
+
+/* Biography,Connections,Work containters */
+.container-2 {
+    background: rgba(247, 246, 246, 0.281);
+    width: 1200px;
+    height: 200px;
+    font-family: "Lucida Console";
+    padding: 10px 20px;
+    margin: 10px auto;
+}
+
+.Biography > h3 {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 140%;
+    
+}
+.Biography > p {
+    text-align: left;
+    font-size: 80%;
+    font-weight: bold;
+}
+.container-3 {
+    background: rgba(247, 246, 246, 0.281);
+    width: 1200px;
+    height: 200px;
+    font-family: "Lucida Console";
+    padding: 10px 20px;
+    margin: 10px auto;
+}
+.Connections > h3 {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 140%;
+    
+}
+.Connections > p {
+    text-align: left;
+    font-size: 80%;
+    font-weight: bold;
+}
+.container-4 {
+    background: rgba(247, 246, 246, 0.281);
+    width: 1200px;
+    height: 200px;
+    font-family: "Lucida Console";
+    padding: 10px 20px;
+    margin: 10px auto;
+}
+.Work > h3 {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 140%;
+    
+}
+.Work > p {
+    text-align: left;
+    font-size: 80%;
+    font-weight: bold;
 }
