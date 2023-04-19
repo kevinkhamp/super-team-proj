@@ -33,6 +33,36 @@ var inputToSearch = function (event) {
 
 };
 
+//todo pull from marvel api so only works from available chars.
+$(function() {
+    var availableTags = [
+      "ActionScript",
+      "AppleScript",
+      "Asp",
+      "BASIC",
+      "C",
+      "C++",
+      "Clojure",
+      "COBOL",
+      "ColdFusion",
+      "Erlang",
+      "Fortran",
+      "Groovy",
+      "Haskell",
+      "Java",
+      "JavaScript",
+      "Lisp",
+      "Perl",
+      "PHP",
+      "Python",
+      "Ruby",
+      "Scala",
+      "Scheme"
+    ];
+    $( "#searchinput" ).autocomplete({
+      source: availableTags
+    });
+  } );
 
 //event listener for the super search bar
 searchBar.addEventListener('submit', inputToSearch);
