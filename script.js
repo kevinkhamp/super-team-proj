@@ -1,13 +1,11 @@
-
-var requestUrl = "https://superheroapi.com/api/" + key1
-var key1 = "3299094467007947/search/"
-
 var searchInput = document.querySelector("#searchinput");
 var searchBar = document.querySelector('#searchbar');
 var navUlEl = document.querySelector('#navul');
 var localStorageArray;
 
-var shortboxedURL = "https://api.shortboxed.com/"
+var shortboxedURL = "https://api.shortboxed.com/" //Might remove
+var key1 = "3299094467007947/search/"
+var superUrl = "https://superheroapi.com/api/" + key1
 
 //generic pull for shortboxed api, use REQUESTED ELEMENT as paramater to specify which element within the shortboxed api to pull
 var getShortboxedApi = function(requestedElement) {
@@ -25,6 +23,24 @@ var getShortboxedApi = function(requestedElement) {
     
       })
 };
+
+var getSuperheroApi = function(requestedElement) {
+  console.log(superUrl )
+  var requestUrl = superUrl + requestedElement;
+  fetch('https://cors-anywhere-jung.herokuapp.com/'+requestUrl, {
+  method: 'GET',
+  credentials: 'same-origin',
+  redirect: 'follow'
+  })
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    console.log(data);
+  
+    })
+};
+
 
 //document.ready to place functions we don't want to use until the page has loaded, commented out for now
 // $(document).ready(function() {
@@ -81,23 +97,8 @@ $(function() {
     });
   } );
 
-function getSuperheroApi() {
-  fetch(requestUrl, {
-    method: 'GET',
-    credentials: 'same-origin',
-    redirect: 'follow'
-    })
-
-  .then(function(response) {
-    return response.json()
-  })
-  .then(function(data){
-    console.log(data)
-  })
-}
-
 getShortboxedApi()
-getSuperheroApi()
+getSuperheroApi('ironman')
 
 //event listener for the super search bar
 searchBar.addEventListener('submit', inputToSearch);
