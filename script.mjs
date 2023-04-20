@@ -2,6 +2,7 @@ var searchInput = document.querySelector("#searchinput");
 var searchBar = document.querySelector('#searchbar');
 var navUlEl = document.querySelector('#navul');
 var localStorageArray;
+var charImg = $('.char-img')
 import { availableTags } from "./longstring.mjs";
 console.log(availableTags);
 
@@ -9,6 +10,16 @@ console.log(availableTags);
 var shortboxedURL = "https://api.shortboxed.com/" //Might remove
 var key1 = "3299094467007947/search/"
 var superUrl = "https://superheroapi.com/api/" + key1
+
+//Search button funtionality. Works but needs to be further developed for API use
+$('.img-size').on('click', function() {
+  var event = $(this).prev().val()
+  console.log("It works")
+  console.log(event)
+
+
+  getSuperheroApi(event)
+})
 
 //generic pull for shortboxed api, use REQUESTED ELEMENT as paramater to specify which element within the shortboxed api to pull
 var getShortboxedApi = function(requestedElement) {
@@ -28,7 +39,6 @@ var getShortboxedApi = function(requestedElement) {
 };
 
 var getSuperheroApi = function(requestedElement) {
-  
   var requestUrl = superUrl + requestedElement;
   fetch('https://cors-anywhere-jung.herokuapp.com/'+requestUrl, {
   method: 'GET',
@@ -75,6 +85,7 @@ $(function() {
       source: availableTags
     });
   } );
+
 
 getShortboxedApi()
 getSuperheroApi('ironman')

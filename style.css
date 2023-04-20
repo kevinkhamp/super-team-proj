@@ -100,6 +100,11 @@ PAGE
     font-family: "Lucida Console";
 }
 
+.hero-img {
+    width: 200px;
+    border-radius: 40px;
+}
+
 /* Biography,Connections,Work containters */
 .container-2 {
     background: rgba(247, 246, 246, 0.281);
