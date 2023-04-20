@@ -9,6 +9,13 @@ var appear3 = document.querySelector('#appearance3')
 var appear4 = document.querySelector('#appearance4')
 var appear5 = document.querySelector('#appearance5')
 var appear6 = document.querySelector('#appearance6')
+//Powerstats
+var power1 = document.querySelector('#power1')
+var power2 = document.querySelector('#power2')
+var power3 = document.querySelector('#power3')
+var power4 = document.querySelector('#power4')
+var power5 = document.querySelector('#power5')
+var power6 = document.querySelector('#power6')
 //Work
 var workInput = document.querySelector('#workinput');
 var workInput2 = document.querySelector('#workinput2');
@@ -75,6 +82,20 @@ var getSuperheroApi = function(requestedElement) {
     
     console.log(data.results[0]);
     
+//Appearance and Powerstats
+    appear1.textContent = "Eye Color: " + data.results[0].appearance['eye-color'] 
+    appear2.textContent = "Gender: " + data.results[0].appearance['gender'] 
+    appear3.textContent = "Hair Color: " + data.results[0].appearance['hair-color'] 
+    appear4.textContent = "Height: " + data.results[0].appearance['height']
+    appear5.textContent = "Race: " + data.results[0].appearance['race'] 
+    appear6.textContent = "Weight: " + data.results[0].appearance['weight'] 
+    
+    power1.textContent = "Strength: " + data.results[0].powerstats['strength']
+    power2.textContent = "Durability: " + data.results[0].powerstats['durability']
+    power3.textContent = "Intelligence: " + data.results[0].powerstats['intelligence']
+    power4.textContent = "Power: " + data.results[0].powerstats['power']
+    power5.textContent = "Combat: " + data.results[0].powerstats['combat']
+    power6.textContent = "Speed: " + data.results[0].powerstats['speed']
 
 //Bio,Occupation,Work Paragraphs
 biographyInput1.textContent = "Aliases: " +data.results[0].biography['aliases'] 
@@ -84,14 +105,6 @@ biographyInput4.textContent = "First Appearance: " +data.results[0].biography['f
 biographyInput5.textContent = "Full Name: " +data.results[0].biography['full-name']
 biographyInput6.textContent = "Place of Birth: " +data.results[0].biography['place-of-birth']
 biographyInput7.textContent = "Publisher: " +data.results[0].biography['publisher']
-
-appear1.textContent = "Eye Color: " + data.results[0].appearance['eye-color'] 
-appear2.textContent = "Gender: " + data.results[0].appearance['gender'] 
-appear3.textContent = "Hair Color: " + data.results[0].appearance['hair-color'] 
-appear4.textContent = "Height: " + data.results[0].appearance['height']
-appear5.textContent = "Race: " + data.results[0].appearance['race'] 
-appear6.textContent = "Weight: " + data.results[0].appearance['weight'] 
-
 
 connectionsInput1.textContent = "Groups and Affiliations: " +data.results[0].connections['group-affiliation']
 connectionsInput2.textContent = "Relatives: " +data.results[0].connections['relatives']
