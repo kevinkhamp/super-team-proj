@@ -9,73 +9,69 @@ body {
 }
 
 /* NAVBAR */
-.navbar ul{
-    list-style: none;
+header {
     background: rgb(223, 147, 147);
-    padding: 0;
-    margin: 0;
+    /* display: flex;
+    justify-content: space-between; */
+    
+}
 
-}
 .navbar li {
-    display: inline-block;
+    display: inline-flex;
+    margin: 0px 10px;
 }
+
 .navbar a {
     text-decoration: none;
-    color:#000000;
-    width: 100px;
-    display: block;
-    padding: 15px 20px;
+    color:#000000;    
     font-size: 15px;
     text-transform: uppercase;
     font-family: "Lucida Console";
     text-align: center;
     font-weight: bold;
 }
+
 .navbar a:hover{
     background:  rgb(231, 200, 116);
 }
 
-/* PAGE */
+/* stole settings to limit autocomplete lenght from https://stackoverflow.com/questions/7617373/limit-results-in-jquery-ui-autocomplete  */
+.ui-autocomplete { 
+    max-height: 200px; 
+    overflow-y: scroll; 
+    overflow-x: hidden;
+    background:rgba(247, 246, 246, 0.281);
+    
+}
+
+PAGE
 /* Container with release, char-img, stats */
 .container-1 {
+    display: flex;
     align-items: center;
     justify-content: center;
-    display: flex;
+    
     flex-direction: row;
     min-width: fit-content;
     position: relative;
-}
+} 
 
-.release, .char-img, .stats {
-border: 1px solid black;
+.card {
+    background: rgb(223, 147, 147);
 }
-
-/* Release should float left of char-img */
-.release {
-    float: left;
-}
-
-/* Stats should float right of char-img */
-.stats {
-    float: right;
-}
-
 /* Search Bar Format */
 .SUPER-SEARCH-BAR{ 
-    width: 50%;
+    
     justify-content: center;
+    min-width: 350px;
     align-items: center;
-    /* max-width: 350px; */
     background: rgba(247, 246, 246, 0.281);
     display: inline-flex;
-    padding: 5px 10px;
-    margin-top: 10px;
-    margin-left: 345px;
+    
+    
 }
 
-#searchinput  {
-    text-align: center;
-}
+
 /* Search Image Icon */
 .img-size {
     width: 25px;
@@ -107,11 +103,10 @@ border: 1px solid black;
 /* Biography,Connections,Work containters */
 .container-2 {
     background: rgba(247, 246, 246, 0.281);
-    width: 1200px;
-    height: 200px;
+    
     font-family: "Lucida Console";
-    padding: 10px 20px;
-    margin: 10px auto;
+    
+    
 }
 
 .Biography > h3 {
@@ -127,11 +122,9 @@ border: 1px solid black;
 }
 .container-3 {
     background: rgba(247, 246, 246, 0.281);
-    width: 1200px;
-    height: 200px;
     font-family: "Lucida Console";
-    padding: 10px 20px;
-    margin: 10px auto;
+    
+    
 }
 .Connections > h3 {
     text-transform: uppercase;
@@ -146,11 +139,9 @@ border: 1px solid black;
 }
 .container-4 {
     background: rgba(247, 246, 246, 0.281);
-    width: 1200px;
-    height: 200px;
     font-family: "Lucida Console";
-    padding: 10px 20px;
-    margin: 10px auto;
+    
+    
 }
 .Work > h3 {
     text-transform: uppercase;

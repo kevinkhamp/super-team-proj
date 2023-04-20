@@ -2,6 +2,9 @@ var searchInput = document.querySelector("#searchinput");
 var searchBar = document.querySelector('#searchbar');
 var navUlEl = document.querySelector('#navul');
 var localStorageArray;
+import { availableTags } from "./longstring.mjs";
+console.log(availableTags);
+
 
 var shortboxedURL = "https://api.shortboxed.com/" //Might remove
 var key1 = "3299094467007947/search/"
@@ -25,7 +28,7 @@ var getShortboxedApi = function(requestedElement) {
 };
 
 var getSuperheroApi = function(requestedElement) {
-  console.log(superUrl )
+  
   var requestUrl = superUrl + requestedElement;
   fetch('https://cors-anywhere-jung.herokuapp.com/'+requestUrl, {
   method: 'GET',
@@ -37,7 +40,7 @@ var getSuperheroApi = function(requestedElement) {
   })
   .then(function (data) {
     console.log(data);
-  
+    return data;
     })
 };
 
@@ -66,32 +69,8 @@ var inputToSearch = function (event) {
 
 };
 
-//todo pull from marvel api so only works from available chars.
-$(function() {
-    var availableTags = [
-      "ActionScript",
-      "AppleScript",
-      "Asp",
-      "BASIC",
-      "C",
-      "C++",
-      "Clojure",
-      "COBOL",
-      "ColdFusion",
-      "Erlang",
-      "Fortran",
-      "Groovy",
-      "Haskell",
-      "Java",
-      "JavaScript",
-      "Lisp",
-      "Perl",
-      "PHP",
-      "Python",
-      "Ruby",
-      "Scala",
-      "Scheme"
-    ];
+//autocomplete from available superheros list
+$(function() {    
     $( "#searchinput" ).autocomplete({
       source: availableTags
     });
