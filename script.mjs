@@ -51,8 +51,11 @@ var getShortBoxedApi = function() {
       return response.json();
     })
     .then(function (data) {
-      
+      while (newReleases.childNodes.length > 2) {
+        newReleases.removeChild(newReleases.lastChild);
+      }
       for (var i = 0; i<3; i++) {
+      
       var newToRead = document.createElement('p');
       newToRead.textContent = "Title: " + data.comics[Math.floor(Math.random()*184)].title;
       newReleases.appendChild(newToRead);
