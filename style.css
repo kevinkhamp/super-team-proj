@@ -38,10 +38,22 @@ header {
 #favbutton {
     background: #a81616d0;
     opacity: 80%;
+    font-family: "Lucida Console";
 }
 
 #favbutton:hover {
     opacity: 50%;
+}
+
+.dropdown-toggle {
+    font-family: "Lucida Console";
+    background: #a81616d0;
+    opacity: 80%;
+}
+
+.dropdown-toggle:hover {
+    background: #a81616d0;
+    opacity:50%;
 }
 
 /* stole settings to limit autocomplete lenght from https://stackoverflow.com/questions/7617373/limit-results-in-jquery-ui-autocomplete  */
@@ -83,7 +95,6 @@ PAGE
     
     
 }
-
 
 /* Search Image Icon */
 .img-size {
