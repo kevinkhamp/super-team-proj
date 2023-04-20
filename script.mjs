@@ -2,52 +2,61 @@ var searchInput = document.querySelector("#searchinput");
 var searchBar = document.querySelector('#searchbar');
 var navUlEl = document.querySelector('#navul');
 var localStorageArray;
+var newReleases = document.querySelector('#release');
+var workInput = document.querySelector('#workinput');
 var charImg = $('.char-img')
 import { availableTags } from "./longstring.mjs";
-console.log(availableTags);
 
-
-var shortboxedURL = "https://api.shortboxed.com/" //Might remove
+//api urls and keys
+var shortBoxedUrl = "api.shortboxed.com"
 var key1 = "3299094467007947"
 var superUrl = "https://superheroapi.com/api/" + key1
 
 //Search button funtionality. Works but needs to be further developed for API use
-$('.img-size').on('click', function(event) {
-  console.log("It works")
-  event.preventDefault()
-  var event = $(this).prev().val()
-  console.log(event)
+// $('.img-size').on('click', function(event) {
+//   console.log("It works")
+//   event.preventDefault()
+//   var event = $(this).prev().val()
+//   console.log(event)
 
-  //Fetch the character's image
-  //fetch().then().then() must be used for each use (i.e. bio, work, etc.)
-  var requestUrl = superUrl;
-  fetch('https://cors-anywhere-jung.herokuapp.com/'+requestUrl, {
-  method: 'GET',
-  credentials: 'same-origin',
-  redirect: 'follow'
-  })
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    //Not targetting array for searched superhero. Shows everything not as Object or Array(x)
-  getSuperheroApi('/search/' + event)
-})
-})
+//   //Fetch the character's image
+//   //fetch().then().then() must be used for each use (i.e. bio, work, etc.)
+//   var requestUrl = superUrl;
+//   fetch('https://cors-anywhere-jung.herokuapp.com/'+requestUrl, {
+//   method: 'GET',
+//   credentials: 'same-origin',
+//   redirect: 'follow'
+//   })
+//   .then(function (response) {
+//     return response.json();
+//   })
+//   .then(function (data) {
+//     //Not targetting array for searched superhero. Shows everything not as Object or Array(x)
+//   getSuperheroApi('/search/' + event)
+// })
+// })
 
 //generic pull for shortboxed api, use REQUESTED ELEMENT as paramater to specify which element within the shortboxed api to pull
-var getShortboxedApi = function(requestedElement) {
-    var requestUrl = shortboxedURL + requestedElement;
-    fetch('https://cors-anywhere-jung.herokuapp.com/'+requestUrl, {
+var getShortBoxedApi = function() {
+
+    var requestUrl2 = shortBoxedUrl + "/comics/v1/new";
+    
+    fetch('https://cors-anywhere-jung.herokuapp.com/'+requestUrl2, {
     method: 'GET',
     credentials: 'same-origin',
     redirect: 'follow'
     })
     .then(function (response) {
+      
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
+      
+      for (var i = 0; i<3; i++) {
+      var newToRead = document.createElement('p');
+      newToRead.textContent = "Title: " + data.comics[Math.floor(Math.random()*184)].title;
+      newReleases.appendChild(newToRead);
+      }
     
       })
 };
@@ -63,16 +72,18 @@ var getSuperheroApi = function(requestedElement) {
     return response.json();
   })
   .then(function (data) {
+    
     console.log(data);
+    
     return data;
-    })
+
+    }) 
 };
 
-
-//document.ready to place functions we don't want to use until the page has loaded, commented out for now
-// $(document).ready(function() {
-
-// });
+// document.ready to place functions we don't want to use until the page has loaded, commented out for now
+$(document).ready(function() {
+  
+});
 
 //creating function to store data from the event listener.
 var inputToSearch = function (event) {
@@ -93,7 +104,7 @@ var inputToSearch = function (event) {
 
 };
 
-//autocomplete from available superheros list
+//autocomplete from superheros list
 $(function() {    
     $( "#searchinput" ).autocomplete({
       source: availableTags
@@ -101,10 +112,18 @@ $(function() {
   } );
 
 
-getShortboxedApi()
-getSuperheroApi('/search/ironman/')
+// getNewReleases();
+
+getSuperheroApi('/search/ironman/');
+
 
 //event listener for the super search bar
-searchBar.addEventListener('submit', inputToSearch);
+searchBar.addEventListener('submit', function(event){
+  event.preventDefault();
+  // userInput = searchInput.value.trim();
+  getShortBoxedApi();
+  
+    
+});
 
 
