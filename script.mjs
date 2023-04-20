@@ -6,6 +6,8 @@ var newReleases = document.querySelector('#release');
 var workInput = document.querySelector('#workinput');
 var charImg = $('.char-img')
 import { availableTags } from "./longstring.mjs";
+var favBtn = document.querySelector('#favbutton');
+var favArray;
 
 //api urls and keys
 var shortBoxedUrl = "api.shortboxed.com"
@@ -65,23 +67,23 @@ $(document).ready(function() {
 });
 
 //creating function to store data from the event listener.
-var inputToSearch = function (event) {
-    //preventing the page from clearing form data
-    event.preventDefault();
-    //creating the variable to use from the search input
-    var userInput = searchInput.value.trim();
-    //if statement to create array to set the local storage...need to create the array if storage is empty
-    if (JSON.parse(localStorage.getItem("superhero"))===null) {
-        localStorageArray=[]; 
-    } else {
-        localStorageArray=JSON.parse(localStorage.getItem("superhero"));   
-    };
-    //pushing new elements to local storage array to then be set in local
-    localStorageArray.push(userInput);
-    //setting the localArray to storage
-    localStorage.setItem("superhero", JSON.stringify(localStorageArray));
+// var inputToSearch = function (event) {
+//     //preventing the page from clearing form data
+//     event.preventDefault();
+//     //creating the variable to use from the search input
+//     var userInput = searchInput.value.trim();
+//     //if statement to create array to set the local storage...need to create the array if storage is empty
+//     if (JSON.parse(localStorage.getItem("superhero"))===null) {
+//         localStorageArray=[]; 
+//     } else {
+//         localStorageArray=JSON.parse(localStorage.getItem("superhero"));   
+//     };
+//     //pushing new elements to local storage array to then be set in local
+//     localStorageArray.push(userInput);
+//     //setting the localArray to storage
+//     localStorage.setItem("superhero", JSON.stringify(localStorageArray));
 
-};
+// };
 
 //autocomplete from superheros list
 $(function() {    
@@ -91,14 +93,13 @@ $(function() {
   } );
 
 
-// getNewReleases();
-
 getSuperheroApi('/search/ironman/');
 
 
 //event listener for the super search bar
 searchBar.addEventListener('submit', function(event){
   event.preventDefault();
+  
   // userInput = searchInput.value.trim();
   getShortBoxedApi();
 
@@ -120,3 +121,17 @@ searchBar.addEventListener('submit', function(event){
 });
 
 
+
+favBtn.addEventListener('click', function(){
+  var userInput = searchInput.value.trim();
+  console.log(userInput);
+  if (JSON.parse(localStorage.getItem("favorite"))===null) {
+    favArray=[];
+  } else {
+    favArray = JSON.parse(localStorage.getItem("favorite"));
+  } if(userInput!="") {
+    favArray.push(userInput);
+  }
+  localStorage.setItem("favorite", JSON.stringify(favArray));
+
+})
