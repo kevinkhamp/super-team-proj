@@ -2,12 +2,14 @@ var searchInput = document.querySelector("#searchinput");
 var searchBar = document.querySelector('#searchbar');
 var navUlEl = document.querySelector('#navul');
 var localStorageArray;
+var newReleases = document.querySelector('#release');
 var charImg = $('.char-img')
 import { availableTags } from "./longstring.mjs";
-console.log(availableTags);
 
+var comicVineApiKey = "035a63a70b2603f70c844e241cc5b85ba8cdd3db";
+var shortBoxedUrl = "api.shortboxed.com"
+var comicVineUrl = "https://comicvine.gamespot.com/api"
 
-var shortboxedURL = "https://api.shortboxed.com/" //Might remove
 var key1 = "3299094467007947"
 var superUrl = "https://superheroapi.com/api/" + key1
 
@@ -35,19 +37,22 @@ $('.img-size').on('click', function(event) {
 })
 })
 
-//generic pull for shortboxed api, use REQUESTED ELEMENT as paramater to specify which element within the shortboxed api to pull
-var getShortboxedApi = function(requestedElement) {
-    var requestUrl = shortboxedURL + requestedElement;
+//generic pull for comicvine api, use REQUESTED ELEMENT as paramater to specify which element within the shortboxed api to pull
+var getShortBoxedApi = function(requestedElement) {
+    var requestUrl = shortBoxedUrl + requestedElement;
+    console.log(requestUrl);
     fetch('https://cors-anywhere-jung.herokuapp.com/'+requestUrl, {
     method: 'GET',
     credentials: 'same-origin',
     redirect: 'follow'
     })
     .then(function (response) {
+      console.log(response);
       return response.json();
     })
     .then(function (data) {
       console.log(data);
+      return(data);
     
       })
 };
@@ -63,11 +68,21 @@ var getSuperheroApi = function(requestedElement) {
     return response.json();
   })
   .then(function (data) {
+    
     console.log(data);
     return data;
-    })
+    }) 
 };
 
+// var getNewReleases = function() {
+//   var apiCall = getShortBoxedApi("/comics/v1/new");
+//   console.log(apiCall);
+//   var publisherInfo = document.createElement('p');
+//   publisherInfo.textContent = apiCall;
+//   newReleases.append(publisherInfo);
+  
+
+// }
 
 //document.ready to place functions we don't want to use until the page has loaded, commented out for now
 // $(document).ready(function() {
@@ -93,16 +108,17 @@ var inputToSearch = function (event) {
 
 };
 
-//autocomplete from available superheros list
+//autocomplete from superheros list
 $(function() {    
     $( "#searchinput" ).autocomplete({
       source: availableTags
     });
   } );
 
-
-getShortboxedApi()
-getSuperheroApi('/search/ironman/')
+var checkingstuff = getShortBoxedApi("/comics/v1/new");
+console.log(checkingstuff);
+// getNewReleases();
+getSuperheroApi('/search/ironman/');
 
 //event listener for the super search bar
 searchBar.addEventListener('submit', inputToSearch);
