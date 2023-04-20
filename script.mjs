@@ -8,17 +8,31 @@ console.log(availableTags);
 
 
 var shortboxedURL = "https://api.shortboxed.com/" //Might remove
-var key1 = "3299094467007947/search/"
+var key1 = "3299094467007947"
 var superUrl = "https://superheroapi.com/api/" + key1
 
 //Search button funtionality. Works but needs to be further developed for API use
-$('.img-size').on('click', function() {
-  var event = $(this).prev().val()
+$('.img-size').on('click', function(event) {
   console.log("It works")
+  event.preventDefault()
+  var event = $(this).prev().val()
   console.log(event)
 
-
-  getSuperheroApi(event)
+  //Fetch the character's image
+  //fetch().then().then() must be used for each use (i.e. bio, work, etc.)
+  var requestUrl = superUrl;
+  fetch('https://cors-anywhere-jung.herokuapp.com/'+requestUrl, {
+  method: 'GET',
+  credentials: 'same-origin',
+  redirect: 'follow'
+  })
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    //Not targetting array for searched superhero. Shows everything not as Object or Array(x)
+  getSuperheroApi('/search/' + event)
+})
 })
 
 //generic pull for shortboxed api, use REQUESTED ELEMENT as paramater to specify which element within the shortboxed api to pull
@@ -88,7 +102,7 @@ $(function() {
 
 
 getShortboxedApi()
-getSuperheroApi('ironman')
+getSuperheroApi('/search/ironman/')
 
 //event listener for the super search bar
 searchBar.addEventListener('submit', inputToSearch);
