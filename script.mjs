@@ -7,6 +7,7 @@ var workInput = document.querySelector('#workinput');
 var charImg = $('.char-img')
 import { availableTags } from "./longstring.mjs";
 var favBtn = document.querySelector('#favbutton');
+var dropDownButton = document.getElementById("dropdownMenuButton");
 var favArray;
 
 //api urls and keys
@@ -93,6 +94,12 @@ $(function() {
   } );
 
 
+//function to check for dups in an array
+function checkDups(array) {
+    return array.filter((item,
+        index) => array.indexOf(item) === index);
+}
+
 getSuperheroApi('/search/ironman/');
 
 
@@ -120,7 +127,9 @@ searchBar.addEventListener('submit', function(event){
 })
 });
 
-
+function openDropdown() {
+  document.getElementById("dropdownMenuButton").classList.toggle("show");
+}
 
 favBtn.addEventListener('click', function(){
   var userInput = searchInput.value.trim();
@@ -131,7 +140,30 @@ favBtn.addEventListener('click', function(){
     favArray = JSON.parse(localStorage.getItem("favorite"));
   } if(userInput!="") {
     favArray.push(userInput);
-  }
-  localStorage.setItem("favorite", JSON.stringify(favArray));
+  } 
+  var filteredFavArray = checkDups(favArray);
 
-})
+  localStorage.setItem("favorite", JSON.stringify(filteredFavArray));
+
+dropDownButton.addEventListener('click', openDropdown())
+});
+
+
+
+
+
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  
+  if (!event.target.matches('#dropdownMenuButton')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
