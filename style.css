@@ -44,6 +44,10 @@ header {
     
 }
 
+.ui-autocomplete:hover { 
+    
+}
+
 PAGE
 /* Container with release, char-img, stats */
 .container-1 {
