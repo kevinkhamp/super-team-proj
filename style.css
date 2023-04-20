@@ -35,6 +35,15 @@ header {
     background:  rgb(231, 200, 116);
 }
 
+#favbutton {
+    background: #a81616d0;
+    opacity: 80%;
+}
+
+#favbutton:hover {
+    opacity: 50%;
+}
+
 /* stole settings to limit autocomplete lenght from https://stackoverflow.com/questions/7617373/limit-results-in-jquery-ui-autocomplete  */
 .ui-autocomplete { 
     max-height: 200px; 
@@ -45,7 +54,7 @@ header {
 }
 
 .ui-autocomplete:hover { 
-    
+    opacity: 70%;
 }
 
 PAGE
