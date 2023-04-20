@@ -4,6 +4,8 @@ var navUlEl = document.querySelector('#navul');
 var localStorageArray;
 var newReleases = document.querySelector('#release');
 var workInput = document.querySelector('#workinput');
+var biographyInput = document.querySelector('#biographyinput');
+var connectionsInput = document.querySelector('#connectionsinput');
 var charImg = $('.char-img')
 import { availableTags } from "./longstring.mjs";
 var favBtn = document.querySelector('#favbutton');
@@ -54,9 +56,19 @@ var getSuperheroApi = function(requestedElement) {
   })
   .then(function (data) {
     
-    console.log(data.results);
-    
-    return data;
+  console.log(data.results);
+
+  //Ethan's Bio
+  biographyInput.textContent = data.results[0].biography.aliases + 
+  // biographyInput.textContent = data.results[0].biography.allignment;
+  // biographyInput.textContent = data.results[0].biography.alter-egos;
+  // biographyInput.textContent = data.results[0].biography.first-appearance;
+  // biographyInput.textContent = data.results[0].biography.full-name;
+  // biographyInput.textContent = data.results[0].biography.place-of-birth;
+  biographyInput.textContent = data.results[0].biography.publisher;
+  
+  console.log(biographyInput)
+  console.log(data.results[0].biography)
 
     }) 
 };
@@ -93,7 +105,7 @@ $(function() {
   } );
 
 
-getSuperheroApi('/search/ironman/');
+// getSuperheroApi('/search/ironman/');
 
 
 //event listener for the super search bar
