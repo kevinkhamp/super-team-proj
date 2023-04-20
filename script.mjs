@@ -1,10 +1,18 @@
 var searchInput = document.querySelector("#searchinput");
 var searchBar = document.querySelector('#searchbar');
-var navUlEl = document.querySelector('#navul');
-var localStorageArray;
+//New Releases
 var newReleases = document.querySelector('#release');
+//Appearance
+var appear1 = document.querySelector('#appearance1')
+var appear2 = document.querySelector('#appearance2')
+var appear3 = document.querySelector('#appearance3')
+var appear4 = document.querySelector('#appearance4')
+var appear5 = document.querySelector('#appearance5')
+var appear6 = document.querySelector('#appearance6')
+//Work
 var workInput = document.querySelector('#workinput');
 var workInput2 = document.querySelector('#workinput2');
+//Biography
 var biographyInput1 = document.querySelector('#biographyinput1');
 var biographyInput2 = document.querySelector('#biographyinput2');
 var biographyInput3 = document.querySelector('#biographyinput3');
@@ -12,9 +20,10 @@ var biographyInput4 = document.querySelector('#biographyinput4');
 var biographyInput5 = document.querySelector('#biographyinput5');
 var biographyInput6 = document.querySelector('#biographyinput6');
 var biographyInput7 = document.querySelector('#biographyinput7');
+//Connections
 var connectionsInput1 = document.querySelector('#connectionsinput1');
 var connectionsInput2 = document.querySelector('#connectionsinput2'); 
-var charImg = $('.char-img')
+
 import { availableTags } from "./longstring.mjs";
 var favBtn = document.querySelector('#favbutton');
 var favArray;
@@ -75,6 +84,14 @@ biographyInput4.textContent = "First Appearance: " +data.results[0].biography['f
 biographyInput5.textContent = "Full Name: " +data.results[0].biography['full-name']
 biographyInput6.textContent = "Place of Birth: " +data.results[0].biography['place-of-birth']
 biographyInput7.textContent = "Publisher: " +data.results[0].biography['publisher']
+
+appear1.textContent = "Eye Color: " + data.results[0].appearance['eye-color'] 
+appear2.textContent = "Gender: " + data.results[0].appearance['gender'] 
+appear3.textContent = "Hair Color: " + data.results[0].appearance['hair-color'] 
+appear4.textContent = "Height: " + data.results[0].appearance['height']
+appear5.textContent = "Race: " + data.results[0].appearance['race'] 
+appear6.textContent = "Weight: " + data.results[0].appearance['weight'] 
+
 
 connectionsInput1.textContent = "Groups and Affiliations: " +data.results[0].connections['group-affiliation']
 connectionsInput2.textContent = "Relatives: " +data.results[0].connections['relatives']
